@@ -1,0 +1,10 @@
+{
+  "email":{
+    "email_valido": "treinamento@cypress",
+    "email_Invalido": "treinamento@jmeter"
+  },
+  "passwords":{
+    "password_valido": "4321",
+    "password_invalido": "1234"
+  }
+}

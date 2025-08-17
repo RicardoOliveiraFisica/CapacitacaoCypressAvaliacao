@@ -3,12 +3,7 @@
 import Login from '../support/Pages/Login'
 
 describe('Realizar Login', function(){
-    const credenciaisObj ={
-     standard: "standard_user",
-     locked: "locked_out_user",
-     password: "secret_sauce"
-    }    
-
+    
     before(function(){
           cy.fixture('credenciaisFixture').then((dados)=>{
                this.credenciaisExt = dados

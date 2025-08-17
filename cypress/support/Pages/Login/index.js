@@ -31,5 +31,28 @@ class Login {
         .should('have.text', 'Your email or password is incorrect!')
     }
 
+    preencherNomeCadastro(nome){
+        cy.get(el.nomeCadastro).type(nome)
+    }
+
+    preenherEmailCadastro(email){
+        cy.get(el.emailCadastro).type(email)
+    }
+
+    clicarEmSignup(){
+        cy.get(el.botaoSignup).click()
+    }
+
+    verificarAberturaCadastroSucesso(){
+        cy.url().should('include', '/signup')
+    }
+
+    verificarCadastroFalha(){
+        cy.get(el.botaoSignup)
+        .parent('form')
+        .find('p')
+        .should('have.text', 'Email Address already exist!')
+    }
+
 }
 export default new Login()

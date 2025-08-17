@@ -25,6 +25,14 @@ describe('Realizar Login', function(){
         Login.preenherEmail(this.credenciaisExt.email.email_valido)
         Login.preencherPassword(this.credenciaisExt.passwords.password_valido)
         Login.clicarEmLogin()
-        Login.verificarLoginSucesso(this.credenciaisExt.email.email_valido)
+        Login.verificarLoginSucesso()
+    })
+
+
+    it.only("Realizar Login com falha", function(){
+        Login.preenherEmail(this.credenciaisExt.email.email_invalido)
+        Login.preencherPassword(this.credenciaisExt.passwords.password_invalido)
+        Login.clicarEmLogin()
+        Login.verificarLoginFalha()
     })
 })

@@ -16,7 +16,7 @@ describe('Realizar Login', function(){
     }) 
 
     beforeEach(function(){
-          Login.acessarURL()
+          Login.acessarURL('/login')
           cy.url().should('include', 'automationexercise')
     })
 

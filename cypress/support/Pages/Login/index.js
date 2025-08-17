@@ -1,8 +1,8 @@
 const el = require('./elements').ELEMENTS
 class Login {
 
-    acessarURL(){
-        cy.visit(el.url)
+    acessarURL(url){
+        cy.visit(url)
       //  cy.get(el.botaoLogin).should('be.visible')
     }
 
@@ -18,10 +18,17 @@ class Login {
         cy.get(el.botaoLogin).click()
     }
 
-    verificarLoginSucesso(email){
+    verificarLoginSucesso(){
         cy.get(el.msgLoginSucesso)
         .parent('a')
         .should('contain', 'Logged in as')
+    }
+
+    verificarLoginFalha(){
+        cy.get(el.botaoLogin)
+        .parent('form')
+        .find('p')
+        .should('have.text', 'Your email or password is incorrect!')
     }
 
 }

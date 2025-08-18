@@ -13,6 +13,18 @@ class Login {
         }
     }
 
+    selecionarDiaNascimentoCadastro(dia){
+        cy.get(el.diaNascimentoCadastro).select(dia)
+    }
+
+    selecionarMesNascimentoCadastro(mes){
+        cy.get(el.mesNascimentoCadastro).select(mes)
+    }
+
+    selecionarAnoNascimentoCadastro(ano){
+        cy.get(el.anoNascimentoCadastro).select(ano)
+    }
+
     preencherPasswordCadastro(password){
         cy.get(el.passwordCadastro).type(password)
     }
@@ -51,18 +63,6 @@ class Login {
 
     preencherTelefoneCadastro(telefone){
         cy.get(el.telefoneCadastro).type(telefone)
-    }
-
-    selecionarDiaNascimentoCadastro(dia){
-        cy.get(el.diaNascimentoCadastro).select(dia)
-    }
-
-    selecionarMesNascimentoCadastro(mes){
-        cy.get(el.mesNascimentoCadastro).select(mes)
-    }
-
-    selecionarAnoNascimentoCadastro(ano){
-        cy.get(el.anoNascimentoCadastro).select(ano)
     }
 
     clicarEmCreate(){

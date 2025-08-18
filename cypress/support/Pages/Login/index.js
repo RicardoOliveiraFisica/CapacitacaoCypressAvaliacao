@@ -43,10 +43,6 @@ class Login {
         cy.get(el.botaoSignup).click()
     }
 
-    verificarAberturaCadastroSucesso(){
-        cy.url().should('include', '/signup')
-    }
-
     verificarCadastroFalha(){
         cy.get(el.botaoSignup)
         .parent('form')

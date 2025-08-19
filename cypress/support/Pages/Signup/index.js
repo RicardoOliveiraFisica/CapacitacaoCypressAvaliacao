@@ -1,5 +1,5 @@
 const el = require('./elements').ELEMENTS
-class Login {
+class Signup {
 
     verificarAberturaCadastroSucesso(){
         cy.url().should('include', '/signup')
@@ -78,4 +78,4 @@ class Login {
     }
 
 }
-export default new Login()
+export default new Signup()

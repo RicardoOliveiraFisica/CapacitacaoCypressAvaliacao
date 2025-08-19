@@ -2,6 +2,7 @@
 //import { before } from 'mocha'
 import Login from '../support/Pages/Login'
 import CategoryProducts from '../support/Pages/CategoryProducts'
+import ViewCart from '../support/Pages/ViewCart'
 
 describe('Realizar Compra', function(){
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -29,6 +30,8 @@ describe('Realizar Compra', function(){
             CategoryProducts.selecionarCategoriaAleatoria()
             CategoryProducts.clicarNoProdutoAleatorio()
             CategoryProducts.verificarProdutoAdicionadoAoCarrinhoSucesso()
+            ViewCart.verificarCarrinhoSucesso()
+            ViewCart.clicarEmCheckout()
     })
 
 })

@@ -1,4 +1,4 @@
-//Elementos da pagina de Login
+//Elementos da pagina de Cadastro
 export const ELEMENTS ={
     titleCadastroMr: '#id_gender1',
     titleCadastroMrs: '#id_gender2',

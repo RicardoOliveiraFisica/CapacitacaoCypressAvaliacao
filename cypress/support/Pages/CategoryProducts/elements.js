@@ -1,4 +1,4 @@
-//Elementos da pagina de Login
+//Elementos da pagina de categoria de produtos
 export const ELEMENTS ={
     category: 'div[class="panel panel-default"]',
     subCategory: 'div[class="panel-collapse in"]',

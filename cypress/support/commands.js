@@ -1,3 +1,4 @@
+const el = require('./Pages/Login/elements.js').ELEMENTS
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -10,16 +11,8 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('realizarLogin', (email, password) => {
+    cy.get(el.email).type(email)
+    cy.get(el.password).type(password)
+    cy.get(el.botaoLogin).click()
+})

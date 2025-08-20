@@ -4,6 +4,8 @@ import Login from '../support/Pages/Login'
 import CategoryProducts from '../support/Pages/CategoryProducts'
 import ViewCart from '../support/Pages/ViewCart'
 import Checkout from '../support/Pages/Checkout'
+import Payment from '../support/Pages/Payment'
+
 
 describe('Realizar Compra', function(){
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -12,22 +14,22 @@ describe('Realizar Compra', function(){
     })
 
     before(function(){
-          cy.fixture('credenciaisFixture').then((dados)=>{
-               this.credenciaisExt = dados
-          })
+            cy.fixture('credenciaisFixture').then((dados)=>{
+                  this.credenciaisExt = dados
+            })
+            
+            Login.acessarURL('/login')
+            cy.url().should('include', 'automationexercise')
+
     }) 
 
     beforeEach(function(){
-          Login.acessarURL('/login')
-          cy.url().should('include', 'automationexercise')
+            cy.realizarLogin(this.credenciaisExt.email.email_valido,
+                             this.credenciaisExt.passwords.password_valido)
     })
 
 
     it("Realizar Compra com sucesso", function(){
-            Login.preenherEmail(this.credenciaisExt.email.email_valido)
-            Login.preencherPassword(this.credenciaisExt.passwords.password_valido)
-            Login.clicarEmLogin()
-            Login.verificarLoginSucesso()
             CategoryProducts.selecionarCategoriaAleatoria()
             CategoryProducts.clicarNoProdutoAleatorio()
             CategoryProducts.verificarProdutoAdicionadoAoCarrinhoSucesso()
@@ -36,7 +38,15 @@ describe('Realizar Compra', function(){
             Checkout.verificarCheckoutSucesso()
             Checkout.verificarCarrinhoNaoVazio()
             Checkout.clicarEmCheckout()
-            
+            Payment.preencherInfoCard(
+                  this.credenciaisExt.payment.card_name,
+                  this.credenciaisExt.payment.card_number,
+                  this.credenciaisExt.payment.card_cvv,
+                  this.credenciaisExt.payment.card_expiration_month,
+                  this.credenciaisExt.payment.card_expiration_year
+            )
+            Payment.clicarEmPagarEConfirmar()
+            Payment.verificarPagamentoSucesso()
     })
 
 })

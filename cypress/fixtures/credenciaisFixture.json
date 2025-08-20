@@ -6,5 +6,12 @@
   "passwords":{
     "password_valido": "4321",
     "password_invalido": "1234"
+  },
+  "payment": {
+    "card_number": "5555555555554444",
+    "card_name": "Fulano de Tal",
+    "card_expiration_month": "12",
+    "card_expiration_year": "2025",
+    "card_cvv": "123"
   }
 }

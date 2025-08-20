@@ -8,17 +8,18 @@ describe('Realizar Cadastro', function(){
     const registroFaker = criarRegistroUsuario()
 
     before(function(){
-          cy.fixture('credenciaisFixture').then((dados)=>{
-               this.credenciaisExt = dados
-          })
     })
 
     beforeEach(function(){
+          cy.fixture('credenciaisFixture').then((dados)=>{
+               this.credenciaisExt = dados
+          })
+          
           Login.acessarURL('/login')
           cy.url().should('include', 'automationexercise')
     })
 
-    it.only("Realizar Cadastro com sucesso", function(){
+    it("Realizar Cadastro com sucesso", function(){
         Login.preencherNomeCadastro(registroFaker.firstName + ' ' + registroFaker.lastName)
         Login.preenherEmailCadastro(registroFaker.firstName + registroFaker.lastName + '@cypress')
         Login.clicarEmSignup()
